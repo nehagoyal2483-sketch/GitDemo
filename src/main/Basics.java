@@ -44,7 +44,12 @@ public class Basics {
 		System.out.println("placeId1");
 		System.out.println("placeId2");
 		System.out.println("placeId3");
-	
+	    
+		
+		
+		
+		
+		
 		//Update Place
 		String newAddress = "Summer Walk, Africa";
 		
@@ -59,19 +64,26 @@ public class Basics {
 		
 		//Get Place
 		
-	String getPlaceResponse=	given().log().all().queryParam("key", "qaclick123")
+	String getPlaceResponse=	given().queryParam("key", "qaclick123")
 		.queryParam("place_id",placeId)
 		.when().get("maps/api/place/get/json")
-		.then().assertThat().log().all().statusCode(200).extract().response().asString();
+		.then().assertThat().statusCode(200).extract().response().asString();
 	
 	JsonPath js1=ReUsableMethods.rawToJson(getPlaceResponse);
 	String actualAddress =js1.getString("address");
-	System.out.println(actualAddress);
+	System.out.println("actualAddress  is : " + actualAddress);
 	//Assert.assertEquals(actualAddress, "Pacific ocean");
 	//Cucumber Junit, Testng
 	
 	
-		
+	String getPlaceResponse1=	given().queryParam("key", "qaclick123")
+		.queryParam("place_id",placeId)
+		.when().get("maps/api/place/get/json")
+		.then().assertThat().statusCode(200).extract().response().asString();
+	
+	JsonPath js2=ReUsableMethods.rawToJson(getPlaceResponse1);
+	String websiteused =js1.getString("website");
+	System.out.println( "Website used " + websiteused);
 	}
 
 }
