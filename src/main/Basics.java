@@ -44,9 +44,7 @@ public class Basics {
 		System.out.println("placeId1");
 		System.out.println("placeId2");
 		System.out.println("placeId3");
-		System.out.println("placeId4");
-		System.out.println("placeId5");
-		
+	
 		//Update Place
 		String newAddress = "Summer Walk, Africa";
 		
